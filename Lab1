@@ -1,0 +1,47 @@
+/* ********************** *
+* Власова Мария 
+* Базовые понятия языка С#
+* ***********************/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace N1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("A ^ n");
+            Console.Write("A="); double A = double.Parse(Console.ReadLine());
+            Console.Write("N="); int N = int.Parse(Console.ReadLine());
+            double P = 1;
+            for (int i = 0; i < N; i++) P *= A;
+            Console.WriteLine("A ^ n = {0}",P);
+            Console.WriteLine();
+            Console.WriteLine("Переместить вторую цифру");
+            Console.Write("X ="); int X = int.Parse(Console.ReadLine());
+            Stack<int> s = new Stack<int>();
+            int d=0;
+            while (X>9)
+            {
+                d = X % 10;
+                X /= 10;
+                s.Push(d);
+            }
+            s.Pop();
+            while (s.Count>0)
+            {
+                X = X * 10 + s.Pop();
+            }
+            X = X * 10 + d;
+            Console.WriteLine("X1={0}", X);
+
+            Console.ReadKey();
+
+        }
+    }
+}
